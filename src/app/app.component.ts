@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServerType, TestServer } from './server.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  Servers:TestServer[] = [];
+  name:string;
+  description:string;
+
+  addServer(){
+    this.Servers.push(new TestServer(this.name, this.description, ServerType.Server));
+  }
+  addServerBlueprint(){
+    this.Servers.push(new TestServer(this.name, this.description, ServerType.Blueprint));
+  }
 }
