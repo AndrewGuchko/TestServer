@@ -1,29 +1,5 @@
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="form-group">
-        <label for="ServerName">Server Name:</label>
-        <input type="text" class="form-control" id="ServerName" [(ngModel)]="name">
-        <label for="ServerDescription">Server Description:</label>
-        <input type="text" class="form-control" id="ServerDescription" [(ngModel)]="description"><br>
-        <input type="button" class="btn btn-success" (click)="addServer()" value="Add Server">
-        <input type="button" class="btn btn-primary" (click)="addServerBlueprint()" value="Add Blueprint">
-        <br><br>
-
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="panel panel-default" *ngFor="let item of Servers">
-              <div class="panel-heading">
-                  {{item.name}} {{item.type}}
-              </div>
-              <div class="panel-body" [ngClass]="{'red':item.type == 1, 'blue': item.type == 2}">
-                {{item.description}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-cockpit></app-cockpit>
+  <app-server-element *ngFor="let server of Servers" [element]="server"></app-server-element>
 </div>

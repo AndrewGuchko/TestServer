@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="ServerName">Server Name:</label>
+        <input type="text" class="form-control" id="ServerName" [(ngModel)]="name">
+        <label for="ServerDescription">Server Description:</label>
+        <input type="text" class="form-control" id="ServerDescription" [(ngModel)]="description"><br>
+        <input type="button" class="btn btn-success" (click)="addServer()" value="Add Server">
+        <input type="button" class="btn btn-primary" (click)="addServerBlueprint()" value="Add Blueprint">
+      </div>
+    </div>
+  </div>

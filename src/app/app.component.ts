@@ -7,14 +7,7 @@ import { ServerType, TestServer } from './server.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  Servers:TestServer[] = [];
+  Servers:TestServer[] = [new TestServer('server', 'test server', ServerType.Blueprint)];
   name:string;
   description:string;
-
-  addServer(){
-    this.Servers.push(new TestServer(this.name, this.description, ServerType.Server));
-  }
-  addServerBlueprint(){
-    this.Servers.push(new TestServer(this.name, this.description, ServerType.Blueprint));
-  }
 }
