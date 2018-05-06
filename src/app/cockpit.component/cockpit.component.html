@@ -2,11 +2,15 @@
     <div class="col-xs-12">
       <div class="form-group">
         <label for="ServerName">Server Name:</label>
-        <input type="text" class="form-control" id="ServerName" [(ngModel)]="name">
+        <!--<input type="text" class="form-control" id="ServerName" [(ngModel)]="name">-->
+        <input type="text" class="form-control" id="ServerName" #name>
+        
         <label for="ServerDescription">Server Description:</label>
-        <input type="text" class="form-control" id="ServerDescription" [(ngModel)]="description"><br>
-        <input type="button" class="btn btn-success" (click)="addServer()" value="Add Server">
-        <input type="button" class="btn btn-primary" (click)="addServerBlueprint()" value="Add Blueprint">
+        <!--<input type="text" class="form-control" id="ServerDescription" [(ngModel)]="description"><br>-->
+        <input type="text" class="form-control" id="ServerDescription" #description><br>
+        
+        <input type="button" class="btn btn-success" (click)="addServer(name, description)" value="Add Server">
+        <input type="button" class="btn btn-primary" (click)="addServerBlueprint(name.value, description.value)" value="Add Blueprint">
       </div>
     </div>
   </div>

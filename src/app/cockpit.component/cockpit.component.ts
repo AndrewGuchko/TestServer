@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
 import { ServerType, TestServer } from '../server.model';
 import { Form } from '@angular/forms'
 
@@ -8,13 +8,15 @@ import { Form } from '@angular/forms'
     styleUrls: ['cockpit.component.css']
 })
 export class CockpitComponent{
-  name:string;
-  description:string;
+  //name:string;
+  //description:string;
+  @Output('onServerCreated') ServerCreated = new EventEmitter<TestServer>();
+  @Output('onBlueprintCreated') BlueprintCreated = new EventEmitter<TestServer>();
 
-  addServer(){
-    //this.Servers.push(new TestServer(this.name, this.description, ServerType.Server));
+  addServer(name:HTMLInputElement, description:HTMLInputElement){
+    this.ServerCreated.emit(new TestServer(name.value, description.value, ServerType.Server))
   }
-  addServerBlueprint(){
-    //this.Servers.push(new TestServer(this.name, this.description, ServerType.Blueprint));
+  addServerBlueprint(name:string, description:string){
+    this.BlueprintCreated.emit(new TestServer(name, description, ServerType.Blueprint))
   }
 }

@@ -10,4 +10,11 @@ export class AppComponent {
   Servers:TestServer[] = [new TestServer('server', 'test server', ServerType.Blueprint)];
   name:string;
   description:string;
+
+  onServerAdded(Server: TestServer){
+    this.Servers.push(Server);
+  }
+  onServerBlueprintAdded(ServerBlueprint: TestServer){
+    this.Servers.push(ServerBlueprint);
+  }
 }
